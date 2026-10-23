@@ -1,57 +1,41 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
 
 /* ==========================================================================
-   SEED Design System (https://seed-design.io/) Theme for Base-Resume
-   당근(Daangn) 오픈소스 디자인 시스템 SEED 스타일 적용
+   Spotify Theme (https://spotify.com) for Developer Resume
+   Dark mode base, Spotify Neon Green (#1ed760) accents,
+   and responsive multi-column layout for PC / Mobile
    ========================================================================== */
 
 :root {
-  /* SEED Palette Tokens */
-  --seed-color-palette-carrot-50: #fff8f5;
-  --seed-color-palette-carrot-100: #fff2ec;
-  --seed-color-palette-carrot-200: #ffe2d4;
-  --seed-color-palette-carrot-300: #ffc4a8;
-  --seed-color-palette-carrot-500: #ff6f0f;
-  --seed-color-palette-carrot-600: #ea580c;
-  --seed-color-palette-carrot-700: #c2410c;
+  /* Spotify Core Color Palette */
+  --sp-black: #121212;
+  --sp-dark-surface: #181818;
+  --sp-dark-elevated: #222222;
+  --sp-dark-highlight: #2c2c2c;
+  --sp-dark-border: rgba(255, 255, 255, 0.08);
 
-  --seed-color-palette-gray-00: #ffffff;
-  --seed-color-palette-gray-50: #f7f8f9;
-  --seed-color-palette-gray-100: #f2f4f6;
-  --seed-color-palette-gray-200: #e5e8eb;
-  --seed-color-palette-gray-300: #d5d9de;
-  --seed-color-palette-gray-600: #868b94;
-  --seed-color-palette-gray-700: #565c63;
-  --seed-color-palette-gray-900: #212124;
-  --seed-color-palette-gray-1000: #191b1c;
+  /* Spotify Green System */
+  --sp-green: #1ed760;
+  --sp-green-hover: #1fdf64;
+  --sp-green-active: #169c46;
+  --sp-green-subtle: #1db954;
+  --sp-green-tint: rgba(30, 215, 96, 0.12);
+  --sp-green-glow: rgba(30, 215, 96, 0.3);
 
-  /* SEED Semantic Color Roles */
-  --seed-color-bg-brand-solid: var(--seed-color-palette-carrot-500);
-  --seed-color-bg-brand-solid-pressed: var(--seed-color-palette-carrot-600);
-  --seed-color-bg-brand-weak: var(--seed-color-palette-carrot-100);
-  --seed-color-fg-brand: var(--seed-color-palette-carrot-500);
+  /* Typography Colors */
+  --sp-text-primary: #ffffff;
+  --sp-text-secondary: #b3b3b3;
+  --sp-text-subtle: #727272;
 
-  --seed-color-bg-layer-default: var(--seed-color-palette-gray-00);
-  --seed-color-bg-layer-subtle: var(--seed-color-palette-gray-50);
-  --seed-color-bg-neutral-weak: #f8f9fa;
-  --seed-color-stroke-neutral: var(--seed-color-palette-gray-200);
-  --seed-color-stroke-brand-weak: var(--seed-color-palette-carrot-200);
+  /* Radius Tokens */
+  --sp-radius-card: 14px;
+  --sp-radius-inner: 10px;
+  --sp-radius-pill: 9999px;
 
-  --seed-color-fg-neutral: var(--seed-color-palette-gray-900);
-  --seed-color-fg-neutral-muted: var(--seed-color-palette-gray-700);
-  --seed-color-fg-neutral-subtle: var(--seed-color-palette-gray-600);
-
-  /* SEED Radius Tokens */
-  --seed-radius-r2: 8px;
-  --seed-radius-r3: 12px;
-  --seed-radius-r4: 16px;
-  --seed-radius-r5: 20px;
-  --seed-radius-full: 9999px;
-
-  /* SEED Elevation Shadows */
-  --seed-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 18px rgba(0, 0, 0, 0.04);
-  --seed-shadow-card-hover: 0 4px 20px rgba(255, 111, 15, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-  --seed-shadow-button: 0 4px 14px rgba(255, 111, 15, 0.25);
+  /* Elevation Shadows */
+  --sp-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --sp-shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(30, 215, 96, 0.25);
+  --sp-shadow-button: 0 6px 20px rgba(30, 215, 96, 0.35);
 }
 
 *, *::before, *::after {
@@ -60,44 +44,114 @@
 
 body {
   margin: 0;
-  background: var(--seed-color-bg-neutral-weak);
-  color: var(--seed-color-fg-neutral);
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Apple SD Gothic Neo", "Segoe UI", "Malgun Gothic", sans-serif;
-  line-height: 1.7;
+  background-color: var(--sp-black);
+  color: var(--sp-text-primary);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
   letter-spacing: -0.015em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Dark Scrollbar (Spotify Desktop App Feel) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sp-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (Spotify Artist Header Style)
    ========================================================================== */
 .hero {
-  padding: 56px 20px 52px;
-  background: linear-gradient(145deg, #18191c 0%, #24272c 60%, #2e241f 100%);
-  color: #ffffff;
-  text-align: center;
   position: relative;
-  border-bottom: 2px solid rgba(255, 111, 15, 0.15);
+  background: linear-gradient(180deg, #194a2b 0%, #0f2e1b 50%, #121212 100%);
+  padding: 56px 20px 48px;
+  overflow: hidden;
+}
+
+/* Ambient Spotify Green Radial Glow */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 15%;
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(30, 215, 96, 0.22) 0%, transparent 68%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
 }
 
 .photo {
-  border: 3px solid rgba(255, 255, 255, 0.95);
-  border-radius: var(--seed-radius-full);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  width: 140px;
+  height: 140px;
+  border-radius: var(--sp-radius-pill);
+  border: 4px solid #121212;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 0 2px var(--sp-green);
   object-fit: cover;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.3, 0, 0, 1), box-shadow 0.35s ease;
 }
 
 .photo:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(30, 215, 96, 0.5), 0 0 0 3px var(--sp-green);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Verified Artist-like Badge */
+.badge-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: var(--sp-radius-pill);
+  background: rgba(30, 215, 96, 0.15);
+  border: 1px solid rgba(30, 215, 96, 0.3);
+  color: var(--sp-green);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.badge-icon {
+  flex-shrink: 0;
 }
 
 .hero h1 {
-  margin: 18px 0 6px;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  margin: 6px 0 10px;
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
   color: #ffffff;
 }
 
@@ -105,66 +159,148 @@ body {
   margin: 0 0 12px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #ff9147;
+  color: var(--sp-green);
   letter-spacing: -0.01em;
 }
 
 .hero p {
   margin: 0 auto;
-  max-width: 520px;
-  font-size: 0.95rem;
-  color: #c4c8cf;
+  max-width: 560px;
+  font-size: 0.98rem;
+  color: var(--sp-text-secondary);
   line-height: 1.65;
 }
 
-/* ==========================================================================
-   Main Content Layout
-   ========================================================================== */
-main {
-  display: grid;
-  gap: 20px;
-  max-width: 760px;
-  margin: -28px auto 0;
-  padding: 0 16px 48px;
-  position: relative;
-  z-index: 2;
+/* Desktop Hero Layout: Side-by-side Artist Layout */
+@media (min-width: 840px) {
+  .hero {
+    padding: 72px 32px 56px;
+  }
+
+  .hero-inner {
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: left;
+    gap: 36px;
+  }
+
+  .photo {
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.75), 0 0 0 3px var(--sp-green);
+  }
+
+  .hero-text {
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    line-height: 1.05;
+    margin: 4px 0 12px;
+  }
+
+  .hero h2 {
+    font-size: 1.25rem;
+    margin: 0 0 12px;
+  }
+
+  .hero p {
+    margin: 0;
+    max-width: 720px;
+    font-size: 1.05rem;
+  }
 }
 
 /* ==========================================================================
-   Card Component
+   Main Content Layout (Responsive PC / Mobile Multi-column)
+   ========================================================================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* PC & Large Tablet Grid: 2 Columns */
+@media (min-width: 840px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 24px 32px 72px;
+  }
+
+  .card-about {
+    grid-column: 1 / -1;
+  }
+
+  .card-skills {
+    grid-column: 1 / 2;
+  }
+
+  .card-education {
+    grid-column: 2 / 3;
+  }
+
+  .card-projects {
+    grid-column: 1 / -1;
+  }
+
+  .card-links {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==========================================================================
+   Card Component (Spotify Dark Surface & Accent Border)
    ========================================================================== */
 .card {
   padding: 26px 28px;
-  border-radius: var(--seed-radius-r4);
-  background: var(--seed-color-bg-layer-default);
-  border: 1px solid var(--seed-color-stroke-neutral);
-  box-shadow: var(--seed-shadow-card);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border-radius: var(--sp-radius-card);
+  background: var(--sp-dark-surface);
+  border: 1px solid var(--sp-dark-border);
+  box-shadow: var(--sp-shadow-card);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
-  border-color: #dbe0e5;
+  background: #1c1c1c;
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 main h2 {
-  margin: 0 0 16px;
-  padding-left: 12px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--seed-color-fg-neutral);
-  letter-spacing: -0.02em;
-  border-left: 4px solid var(--seed-color-palette-carrot-500);
+  margin: 0 0 18px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+main h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: var(--sp-green);
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
 .card > p {
   margin: 0;
-  color: var(--seed-color-fg-neutral-muted);
-  font-size: 0.97rem;
+  color: var(--sp-text-secondary);
+  font-size: 0.98rem;
   line-height: 1.75;
 }
 
 /* ==========================================================================
-   Skills Section (SEED Chips & Badges)
+   Skills Section (Spotify Genre/Tag Pills)
    ========================================================================== */
 .skills {
   list-style: none;
@@ -178,77 +314,104 @@ main h2 {
 .skills li {
   display: inline-flex;
   align-items: center;
-  padding: 8px 14px;
-  border-radius: var(--seed-radius-r3);
-  background: var(--seed-color-bg-layer-subtle);
-  border: 1px solid var(--seed-color-stroke-neutral);
-  color: var(--seed-color-fg-neutral);
+  padding: 8px 16px;
+  border-radius: var(--sp-radius-pill);
+  background: var(--sp-dark-elevated);
+  border: 1px solid var(--sp-dark-border);
+  color: #ffffff;
   font-size: 0.92rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.3, 0, 0, 1);
 }
 
 .skills li:hover {
-  border-color: var(--seed-color-stroke-brand-weak);
-  background: var(--seed-color-palette-carrot-50);
+  background: #2e2e2e;
+  border-color: var(--sp-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 215, 96, 0.2);
 }
 
 .level {
   margin-left: 8px;
-  padding: 2px 8px;
-  border-radius: var(--seed-radius-full);
-  background: var(--seed-color-bg-brand-weak);
-  color: var(--seed-color-fg-brand);
-  border: 1px solid var(--seed-color-stroke-brand-weak);
-  font-size: 0.75rem;
-  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--sp-radius-pill);
+  background: var(--sp-green);
+  color: #000000;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
-   Projects Section
+   Projects Section (Spotify Discography Grid Style)
    ========================================================================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 680px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
 .project {
-  margin-top: 14px;
-  padding: 20px;
-  border-radius: var(--seed-radius-r3);
-  background: #fafbfc;
-  border: 1px solid var(--seed-color-stroke-neutral);
-  box-shadow: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0;
+  padding: 22px;
+  border-radius: var(--sp-radius-inner);
+  background: var(--sp-dark-elevated);
+  border: 1px solid var(--sp-dark-border);
+  transition: all 0.28s cubic-bezier(0.3, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
 }
 
 .project:hover {
-  background: var(--seed-color-bg-layer-default);
-  border-color: var(--seed-color-stroke-brand-weak);
-  box-shadow: var(--seed-shadow-card-hover);
-  transform: translateY(-2px);
+  background: var(--sp-dark-highlight);
+  transform: translateY(-4px);
+  box-shadow: var(--sp-shadow-hover);
 }
 
-h3 {
-  margin: 0;
-  color: var(--seed-color-fg-neutral);
-  font-size: 1.08rem;
+.project h3 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.project:hover h3 {
+  color: var(--sp-green);
 }
 
 .meta {
-  margin: 4px 0 12px;
-  color: var(--seed-color-fg-neutral-subtle);
-  font-size: 0.86rem;
-  font-weight: 500;
+  margin: 0 0 14px;
+  color: var(--sp-text-subtle);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .project ul {
   margin: 0;
   padding-left: 18px;
-  color: var(--seed-color-fg-neutral-muted);
+  color: var(--sp-text-secondary);
   font-size: 0.92rem;
+  flex-grow: 1;
 }
 
 .project li {
   margin-bottom: 6px;
   line-height: 1.6;
+}
+
+.project li::marker {
+  color: var(--sp-green);
 }
 
 .project li:last-child {
@@ -258,30 +421,35 @@ h3 {
 /* ==========================================================================
    Education Section
    ========================================================================== */
-.card > ul:not(.skills):not(.links) {
+.card-education ul {
   margin: 0;
   padding-left: 20px;
-  color: var(--seed-color-fg-neutral-muted);
-  font-size: 0.95rem;
+  color: var(--sp-text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.7;
 }
 
-.card > ul:not(.skills):not(.links) li {
-  margin-bottom: 8px;
+.card-education li {
+  margin-bottom: 10px;
 }
 
-.card > ul:not(.skills):not(.links) li:last-child {
+.card-education li::marker {
+  color: var(--sp-green);
+}
+
+.card-education li:last-child {
   margin-bottom: 0;
 }
 
 /* ==========================================================================
-   Links Section (SEED Button Style)
+   Links Section (Spotify Action Pill Buttons)
    ========================================================================== */
 .links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -289,37 +457,61 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  border-radius: var(--seed-radius-r3);
-  background: var(--seed-color-bg-brand-weak);
-  color: var(--seed-color-fg-brand);
-  font-weight: 600;
-  font-size: 0.95rem;
+  padding: 13px 32px;
+  border-radius: var(--sp-radius-pill);
+  font-size: 0.96rem;
+  font-weight: 700;
   text-decoration: none;
-  border: 1px solid var(--seed-color-stroke-brand-weak);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+  min-height: 48px;
+  transition: all 0.25s cubic-bezier(0.3, 0, 0, 1);
 }
 
-.links a:hover {
-  background: var(--seed-color-bg-brand-solid);
+/* Primary Button (Portfolio): Spotify Signature Bright Green Pill */
+.btn-portfolio {
+  background: var(--sp-green);
+  color: #000000;
+  box-shadow: var(--sp-shadow-button);
+}
+
+.btn-portfolio:hover {
+  background: var(--sp-green-hover);
+  color: #000000;
+  transform: scale(1.05);
+  box-shadow: 0 8px 26px rgba(30, 215, 96, 0.5);
+}
+
+.btn-portfolio:active {
+  background: var(--sp-green-active);
+  transform: scale(0.98);
+}
+
+/* Secondary Button (GitHub): Minimalist Border Pill */
+.btn-github {
+  background: transparent;
   color: #ffffff;
-  border-color: var(--seed-color-bg-brand-solid);
-  box-shadow: var(--seed-shadow-button);
-  transform: translateY(-2px);
+  border: 1px solid #727272;
 }
 
-.links a:active {
-  background: var(--seed-color-bg-brand-solid-pressed);
-  transform: translateY(0);
+.btn-github:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.05);
+}
+
+.btn-github:active {
+  transform: scale(0.98);
 }
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 footer {
-  color: var(--seed-color-fg-neutral-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--sp-text-subtle);
   text-align: center;
-  padding: 36px 16px 56px;
+  padding: 40px 20px 60px;
   font-size: 0.88rem;
 }
 
@@ -328,27 +520,33 @@ footer p {
 }
 
 /* ==========================================================================
-   Responsive Adjustments
+   Mobile-specific Fine Tuning (< 600px)
    ========================================================================== */
 @media (max-width: 600px) {
   .hero {
-    padding: 44px 16px 40px;
+    padding: 44px 16px 36px;
+  }
+
+  .photo {
+    width: 120px;
+    height: 120px;
   }
 
   .hero h1 {
-    font-size: 1.75rem;
+    font-size: 1.95rem;
   }
 
   .hero h2 {
-    font-size: 1rem;
+    font-size: 1.02rem;
   }
 
   .card {
     padding: 20px 18px;
-    border-radius: var(--seed-radius-r3);
+    border-radius: var(--sp-radius-inner);
   }
 
-  .project {
-    padding: 16px;
+  .links a {
+    width: 100%;
+    text-align: center;
   }
 }

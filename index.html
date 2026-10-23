@@ -9,17 +9,27 @@
   </head>
   <body>
     <header class="hero">
-      <!-- 내 사진으로 바꾸려면: 사진 파일(예: me.jpg)을 이 폴더에 넣고 src="me.jpg" 로 수정 -->
-      <img class="photo" src="profile.svg" alt="이순신 프로필 이미지" width="140" height="140">
-      <!-- 여기를 내 내용으로 수정 -->
-      <h1>이순신</h1>
-      <!-- 여기를 내 내용으로 수정 -->
-      <h2>AI 엔지니어 (Azure 클라우드) 지망생</h2>
-      <!-- 여기를 내 내용으로 수정 -->
-      <p>클라우드 위에서 AI 서비스를 만들고 운영하는 엔지니어가 되고 싶습니다.</p>
+      <div class="hero-inner">
+        <!-- 내 사진으로 바꾸려면: 사진 파일(예: me.jpg)을 이 폴더에 넣고 src="me.jpg" 로 수정 -->
+        <img class="photo" src="profile.svg" alt="이순신 프로필 이미지" width="160" height="160">
+        <div class="hero-text">
+          <div class="badge-verified">
+            <svg class="badge-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+            </svg>
+            <span>Verified AI Engineer</span>
+          </div>
+          <!-- 여기를 내 내용으로 수정 -->
+          <h1>이순신</h1>
+          <!-- 여기를 내 내용으로 수정 -->
+          <h2>AI 엔지니어 (Azure 클라우드) 지망생</h2>
+          <!-- 여기를 내 내용으로 수정 -->
+          <p>클라우드 위에서 AI 서비스를 만들고 운영하는 엔지니어가 되고 싶습니다.</p>
+        </div>
+      </div>
     </header>
     <main>
-      <section class="card">
+      <section class="card card-about">
         <h2>About</h2>
         <!-- 여기를 내 내용으로 수정 -->
         <p>
@@ -28,7 +38,7 @@
           GitHub로 코드를 관리하고 팀과 공유하며 함께 성장하는 엔지니어가 되겠습니다.
         </p>
       </section>
-      <section class="card">
+      <section class="card card-skills">
         <h2>Skills</h2>
         <ul class="skills">
           <!-- 여기를 내 내용으로 수정 -->
@@ -39,38 +49,40 @@
           <li>Azure AI · OpenAI <span class="level">기초</span></li>
         </ul>
       </section>
-      <section class="card">
+      <section class="card card-projects">
         <h2>Projects</h2>
-        <article class="project">
-          <!-- 여기를 내 내용으로 수정 -->
-          <h3>Azure ML 기반 이미지 분류 서비스</h3>
-          <!-- 여기를 내 내용으로 수정 -->
-          <p class="meta">2026.12 · 4인 팀 프로젝트</p>
-          <ul>
+        <div class="project-grid">
+          <article class="project">
             <!-- 여기를 내 내용으로 수정 -->
-            <li>역할: 데이터 정제 · 모델 학습 파이프라인 구성</li>
+            <h3>Azure ML 기반 이미지 분류 서비스</h3>
             <!-- 여기를 내 내용으로 수정 -->
-            <li>사용 기술: Python, Azure ML, 전이학습</li>
+            <p class="meta">2026.12 · 4인 팀 프로젝트</p>
+            <ul>
+              <!-- 여기를 내 내용으로 수정 -->
+              <li>역할: 데이터 정제 · 모델 학습 파이프라인 구성</li>
+              <!-- 여기를 내 내용으로 수정 -->
+              <li>사용 기술: Python, Azure ML, 전이학습</li>
+              <!-- 여기를 내 내용으로 수정 -->
+              <li>결과: 학습부터 배포까지 Azure ML 파이프라인으로 자동화</li>
+            </ul>
+          </article>
+          <article class="project">
             <!-- 여기를 내 내용으로 수정 -->
-            <li>결과: 학습부터 배포까지 Azure ML 파이프라인으로 자동화</li>
-          </ul>
-        </article>
-        <article class="project">
-          <!-- 여기를 내 내용으로 수정 -->
-          <h3>사내 문서 Q&amp;A RAG 챗봇</h3>
-          <!-- 여기를 내 내용으로 수정 -->
-          <p class="meta">2027.01 · 4인 팀 프로젝트</p>
-          <ul>
+            <h3>사내 문서 Q&amp;A RAG 챗봇</h3>
             <!-- 여기를 내 내용으로 수정 -->
-            <li>역할: 문서 검색(RAG) · 프롬프트 설계</li>
-            <!-- 여기를 내 내용으로 수정 -->
-            <li>사용 기술: Azure OpenAI, Azure AI Search, Django</li>
-            <!-- 여기를 내 내용으로 수정 -->
-            <li>결과: 문서 근거와 함께 답하는 웹 챗봇 완성</li>
-          </ul>
-        </article>
+            <p class="meta">2027.01 · 4인 팀 프로젝트</p>
+            <ul>
+              <!-- 여기를 내 내용으로 수정 -->
+              <li>역할: 문서 검색(RAG) · 프롬프트 설계</li>
+              <!-- 여기를 내 내용으로 수정 -->
+              <li>사용 기술: Azure OpenAI, Azure AI Search, Django</li>
+              <!-- 여기를 내 내용으로 수정 -->
+              <li>결과: 문서 근거와 함께 답하는 웹 챗봇 완성</li>
+            </ul>
+          </article>
+        </div>
       </section>
-      <section class="card">
+      <section class="card card-education">
         <h2>Education</h2>
         <ul>
           <!-- 여기를 내 내용으로 수정 -->
@@ -81,16 +93,16 @@
           <li>자격증: Microsoft Azure AI Fundamentals (AI-900)</li>
         </ul>
       </section>
-      <section class="card">
+      <section class="card card-links">
         <h2>Links</h2>
         <ul class="links">
           <li>
             <!-- 여기를 내 내용으로 수정 -->
-            <a href="https://github.com/">GitHub</a>
+            <a class="btn-github" href="https://github.com/">GitHub</a>
           </li>
           <li>
             <!-- 여기를 내 내용으로 수정 -->
-            <a href="https://vercel.com/">포트폴리오</a>
+            <a class="btn-portfolio" href="https://vercel.com/">포트폴리오</a>
           </li>
         </ul>
       </section>
