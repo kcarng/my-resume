@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
   <!-- 원형 배경 -->
-  <circle cx="70" cy="70" r="70" fill="#0070C0"/>
-  <circle cx="70" cy="70" r="62" fill="#3D9BE0"/>
+  <circle cx="70" cy="70" r="70" fill="#FF6F0F"/>
+  <circle cx="70" cy="70" r="62" fill="#FFA15C"/>
   <!-- 안테나 -->
   <line x1="70" y1="22" x2="70" y2="38" stroke="#0E2841" stroke-width="4" stroke-linecap="round"/>
   <circle cx="70" cy="20" r="6" fill="#FFD166"/>
